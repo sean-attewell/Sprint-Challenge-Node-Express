@@ -1,6 +1,7 @@
 const express = require('express');
 const routes = express.Router();
 const Projects = require('./data/helpers/projectModel');
+const Actions = require('./data/helpers/actionModel');
 
 routes.use(express.json());
 
@@ -74,7 +75,7 @@ routes.delete('/:id', async (req, res) => {
     // need to delete the actions first
     const actions = await Projects.getProjectActions(req.params.id)
     await actions.forEach( async (action) => {
-        await Projects.remove(action.id)
+        await Actions.remove(action.id)
     });
 
     try {
