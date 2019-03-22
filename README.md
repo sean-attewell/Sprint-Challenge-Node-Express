@@ -24,15 +24,27 @@ In this challenge, create a web API around the following resources: `Projects` a
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Mention two parts of Express that you learned about this week.
+- [X] Mention two parts of Express that you learned about this week.
 
-- [ ] Describe Middleware?
+Building RESTful APIs with routing.
+Serving static content, like html files.
 
-- [ ] Describe a Resource?
+- [X] Describe Middleware?
 
-- [ ] What can the API return to help clients know if a request was successful?
+Functions that get the request and response objects and can operate on them and either return the response or call the next middleware in the pipeline. Examples are logging or security. Middleware can change the request or response, but doesn’t have to.
 
-- [ ] How can we partition our application into sub-applications?
+- [X] Describe a Resource?
+
+This could be anything the client might need to perform CRUD operations on, with each resource usually being accessed via a unique URL. Resources can have multiple representations.
+
+- [X] What can the API return to help clients know if a request was successful?
+
+A status code reflective of the outcome, along with perhaps an object containing a message.
+e.g. res.status(404).json({ message: "My message”});
+
+- [X] How can we partition our application into sub-applications?
+
+Express Routers are a way to split an application into sub-applications to make it more modular and easier to maintain and reason about. An Express Router behaves like a mini Express application. It can have its own Routing and Middleware, but it needs to exist inside of an Express application.
 
 ## Project Setup
 
@@ -47,7 +59,7 @@ Follow these steps to set up and work on your project:
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master on your fork. **Please don't merge your own pull request.**
+- [X] Submit a Pull-Request to merge <firstName-lastName> Branch into master on your fork. **Please don't merge your own pull request.**
 - [ ] Add your _Project Manager_ as a Reviewer on the Pull-request
 - [ ] Your _Project Manager_ will count the challenge as done by merging the branch into _master_.
 
@@ -57,7 +69,7 @@ Please read the following before implementing the Minimum Viable Product:
 
 The `/data/helpers` folder includes files you can use to manage the persistence of _project_ and _action_ data. These files are `projectModel.js` and `actionModel.js`. Both files publish the following api, which you can use to store, modify and retrieve each resource:
 
-**All these helper methods return a promise. Please you .then().catch() or async/await**
+**All these helper methods return a promise. Please use .then().catch() or async/await**
 
 - `get()`: calling get returns an array of all the resources contained in the database. If you pass an `id` to this method it will return the resource with that id if one is found.
 - `insert()`: calling insert passing it a resource object will add it to the database and return the newly created resource.
@@ -68,13 +80,13 @@ The `projectModel.js` helper includes an extra method called `getProjectActions(
 
 ## Minimum Viable Product
 
-- [ ] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
-- [ ] Configure an _npm script_ named _"start"_ that will execute your code using _node_.
+- [X] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
+- [X] Configure an _npm script_ named _"start"_ that will execute your code using _node_.
 
 Design and build the necessary endpoints to:
 
 - [ ] Perform CRUD operations on _projects_ and _actions_.
-- [ ] Retrieve the list of actions for a project.
+- [X] Retrieve the list of actions for a project.
 
 ### Database Schemas
 
